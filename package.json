@@ -1,0 +1,47 @@
+{
+	"name": "server",
+	"version": "1.0.0",
+	"description": "",
+	"type": "module",
+	"scripts": {
+		"build": "tsc",
+		"dev": "tsx src/app.ts",
+		"dev:watch": "tsx watch src/app.ts",
+		"typechecking": "tsc --noEmit -p tsconfig.json",
+		"lint": "eslint ./src --ext .ts",
+		"lint:fix": "eslint ./src --fix",
+		"format": "prettier --check ./src",
+		"format:fix": "prettier --write ./src",
+		"check": "pnpm run lint && pnpm run typechecking",
+		"prepare": "cd .. && HUSKY=1 pnpm --filter ./server husky server./husky"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"packageManager": "pnpm@10.19.0",
+	"devDependencies": {
+		"@eslint/js": "^9.39.1",
+		"@types/node": "^24.10.0",
+		"eslint": "^9.39.1",
+		"eslint-config-prettier": "^10.1.8",
+		"globals": "^16.5.0",
+		"husky": "^9.1.7",
+		"lint-staged": "^16.2.6",
+		"prettier": "^3.6.2",
+		"tsx": "^4.20.6",
+		"typescript": "^5.9.3",
+		"typescript-eslint": "^8.46.3"
+	},
+	"imports": {
+		"#*": "./src/*"
+	},
+	"lint-staged": {
+		"*.{ts, js}": [
+			"eslint",
+			"prettier --check"
+		],
+		"*.{json, md, yml, yaml}": [
+			"prettier --check"
+		]
+	}
+}
