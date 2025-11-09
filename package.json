@@ -4,16 +4,16 @@
 	"description": "",
 	"type": "module",
 	"scripts": {
+		"start": "node dist/app.js",
 		"build": "tsc",
-		"dev": "tsx src/app.ts",
-		"dev:watch": "tsx watch src/app.ts",
+		"dev": "nodemon -L",
 		"typechecking": "tsc --noEmit -p tsconfig.json",
 		"lint": "eslint ./src --ext .ts",
 		"lint:fix": "eslint ./src --fix",
 		"format": "prettier --check ./src",
 		"format:fix": "prettier --write ./src",
 		"check": "pnpm run lint && pnpm run typechecking",
-		"prepare": "cd .. && HUSKY=1 pnpm --filter ./server husky server./husky"
+		"prepare": "husky"
 	},
 	"keywords": [],
 	"author": "",
@@ -21,12 +21,19 @@
 	"packageManager": "pnpm@10.19.0",
 	"devDependencies": {
 		"@eslint/js": "^9.39.1",
+		"@types/bcrypt": "^6.0.0",
+		"@types/cookie-parser": "^1.4.10",
+		"@types/cors": "^2.8.19",
+		"@types/express": "^5.0.5",
+		"@types/jsonwebtoken": "^9.0.10",
+		"@types/morgan": "^1.9.10",
 		"@types/node": "^24.10.0",
 		"eslint": "^9.39.1",
 		"eslint-config-prettier": "^10.1.8",
 		"globals": "^16.5.0",
 		"husky": "^9.1.7",
 		"lint-staged": "^16.2.6",
+		"nodemon": "^3.1.10",
 		"prettier": "^3.6.2",
 		"tsx": "^4.20.6",
 		"typescript": "^5.9.3",
@@ -43,5 +50,16 @@
 		"*.{json, md, yml, yaml}": [
 			"prettier --check"
 		]
+	},
+	"dependencies": {
+		"bcrypt": "^6.0.0",
+		"cookie-parser": "^1.4.7",
+		"cors": "^2.8.5",
+		"dotenv": "^17.2.3",
+		"express": "^5.1.0",
+		"helmet": "^8.1.0",
+		"jsonwebtoken": "^9.0.2",
+		"mongoose": "^8.19.3",
+		"morgan": "^1.10.1"
 	}
 }

@@ -13,7 +13,6 @@ export default defineConfig([
 			globals: globals.node,
 		},
 		rules: {
-			"no-console": "warn",
 			"no-undef": "warn",
 			"no-unused-vars": "warn",
 		},

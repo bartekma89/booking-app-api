@@ -1,0 +1,26 @@
+services:
+  server:
+    build:
+      context: .
+    ports:
+      - "4000:4000"
+    env_file:
+      - .env
+    volumes:
+      - ./src:/app/src
+    container_name: booking_app_c
+    image: booking_app
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    container_name: mongodb
+    env_file:
+      - .env
+
+volumes:
+  mongo-data:
