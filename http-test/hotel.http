@@ -1,0 +1,33 @@
+@URL = http://localhost:4000/api/hotels
+
+POST {{URL}}/create
+Content-Type: application/json
+
+{
+    "name": "lublin hotel",
+	"type": "hotel",
+	"city": "lublin",
+	"addres": "somewhere",
+	"distance": "500",
+	"title": "Best hotel in the city",
+	"desc": "hotel description",
+	"cheapestPrice": 100
+}
+
+###
+PUT {{URL}}/691338ae3c3cbb4123bf3c41
+Content-Type: application/json
+
+{
+    "cheapestPrice": 123,
+    "name": "Lublin hotel"
+}
+
+###
+DELETE {{URL}}/6913320af215431fc1b734c7
+
+###
+GET {{URL}}/691338ae3c3cbb4123bf3c41
+
+###
+GET {{URL}}

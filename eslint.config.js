@@ -14,7 +14,11 @@ export default defineConfig([
 		},
 		rules: {
 			"no-undef": "warn",
-			"no-unused-vars": "warn",
+			"@typescript-eslint/no-unused-vars": [
+				"error",
+				{ argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
+			],
+			"@typescript-eslint/no-this-alias": "warn",
 		},
 	},
 	tseslint.configs.recommended,
