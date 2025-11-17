@@ -2,3 +2,21 @@
 
 POST {{URL}}/register
 Content-Type: application/json
+
+{
+    "username": "Bart1",
+    "email": "test@test1.com",
+    "password": "qwerty12341"
+}
+
+###
+POST {{URL}}/login
+Content-Type: application/json
+
+{
+    "username": "Bart1",
+    "password": "qwerty12341"
+}
+
+###
+GET {{URL}}/users

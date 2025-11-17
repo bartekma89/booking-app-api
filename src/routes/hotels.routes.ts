@@ -5,7 +5,7 @@ import {
 	getHotel,
 	getHotels,
 	updateHotel,
-} from "#controllers/hotels.controller.js";
+} from "#controllers/hotel.controller.js";
 
 const router: RouterType = Router();
 

@@ -2,9 +2,11 @@ import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import morgan from "morgan";
+import cookieParser from "cookie-parser";
 
 import authRoutes from "#routes/auth.routes.js";
 import hotelsRoutes from "#routes/hotels.routes.js";
+import usersRoutes from "#routes/users.routes.js";
 import { errorHandler } from "#middleware/errorHandler.js";
 
 const app = express();
@@ -15,9 +17,11 @@ dotenv.config();
 
 app.use(express.json());
 app.use(morgan("combined"));
+app.use(cookieParser());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/hotels", hotelsRoutes);
+app.use("/api/users", usersRoutes);
 
 app.use(errorHandler);
 
