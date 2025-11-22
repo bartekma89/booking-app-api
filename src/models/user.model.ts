@@ -10,7 +10,7 @@ export interface IUser extends Document {
 	city: string;
 	phone: string;
 	password: string;
-	isAdmin?: boolean;
+	isAdmin: boolean;
 }
 
 const UserSchema = new Schema<IUser>(

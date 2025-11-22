@@ -6,6 +6,7 @@ import {
 	getHotels,
 	updateHotel,
 } from "#controllers/hotel.controller.js";
+import { verifyAdmin } from "#middleware/verifyToken.js";
 
 const router: RouterType = Router();
 
@@ -13,13 +14,13 @@ const router: RouterType = Router();
 router.get("/", getHotels);
 
 // CREATE
-router.post("/create", createHotel);
+router.post("/create", verifyAdmin, createHotel);
 
 // UPDATE
-router.put("/:id", updateHotel);
+router.put("/:id", verifyAdmin, updateHotel);
 
 // DELETE
-router.delete("/:id", deleteHotel);
+router.delete("/:id", verifyAdmin, deleteHotel);
 
 // GET
 router.get("/:id", getHotel);

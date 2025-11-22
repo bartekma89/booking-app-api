@@ -7,13 +7,14 @@ import { User, type IUser } from "#models/user.model.js";
 import { AppError } from "#utils/appError.js";
 
 export const register = async (req: Request, res: Response, next: NextFunction) => {
-	const { username, password, email } = req.body as IUser;
+	const { username, password, email, isAdmin } = req.body as IUser;
 
 	try {
 		const user = new User({
 			username,
 			password,
 			email,
+			isAdmin,
 		});
 
 		await user.save();
@@ -53,9 +54,14 @@ export const login = async (
 		console.log(token);
 
 		res
-			.cookie("token", token, { httpOnly: true, maxAge: 24 * 60 * 60 * 1000 })
+			.cookie("token", token, {
+				httpOnly: true,
+				// sameSite: "lax",
+				// secure: false,
+				maxAge: 1000 * 60 * 1,
+			})
 			.status(200)
-			.json({ email, username: name, id });
+			.json({ email, username: name, id, isAdmin });
 	} catch (error) {
 		next(error);
 	}

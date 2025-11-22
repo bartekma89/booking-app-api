@@ -1,12 +1,15 @@
 @URL = http://localhost:4000/api/auth
 
+@TOKEN = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjFmNzA0OTQ1NmE1NzM4YWYxZDk3MCIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE3NjM4MzM2NjF9.FUSoAMQWvUSEy-92QiTxl0g3xx7A5BqX_p8mvFzieeo
+
 POST {{URL}}/register
 Content-Type: application/json
 
 {
-    "username": "Bart1",
-    "email": "test@test1.com",
-    "password": "qwerty12341"
+    "username": "Bart6",
+    "email": "test@test6.com",
+    "password": "qwerty12341",
+    "isAdmin": true
 }
 
 ###
@@ -14,9 +17,6 @@ POST {{URL}}/login
 Content-Type: application/json
 
 {
-    "username": "Bart1",
+    "username": "Bart6",
     "password": "qwerty12341"
 }
-
-###
-GET {{URL}}/users

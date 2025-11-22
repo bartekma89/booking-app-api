@@ -1,11 +1,14 @@
 @URL = http://localhost:4000/api/hotels
 
+@TOKEN = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjFmODU2MDUzYzMwMWZiNzY0Y2JmZCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTc2MzgzMzk0NX0.ZRLD8poAmQhegsdBncuBFc4INYE_8YeF_Db21qoz_Kk
+
 POST {{URL}}/create
+# Cookie: token={{TOKEN}}
 Content-Type: application/json
 
 {
-    "name": "lublin hotel",
-	"type": "hotel",
+    "name": "lublin hotel1",
+	"type": "hotel1",
 	"city": "lublin",
 	"addres": "somewhere",
 	"distance": "500",
@@ -20,7 +23,7 @@ Content-Type: application/json
 
 {
     "cheapestPrice": 123,
-    "name": "Lublin hotel"
+    "name": "Lublin hotel1"
 }
 
 ###
